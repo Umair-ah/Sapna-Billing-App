@@ -1,34 +1,34 @@
 <div class="nested-fields">
-  <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+  <table class="min-w-full divide-y divide-gray-200 overflow-x-auto border border-gray-200">
     </thead>
       <tbody class="bg-white divide-y divide-gray-200">
         <tr>
           <td class="px-6 py-4 whitespace-nowrap">
-            <div class="field text-sm text-gray-900 border">
-              <%= f.text_area :description %>
+            <div class="field text-sm text-gray-900">
+              <%= f.text_area :description, class:"w-full border border-gray-700 rounded", rows: 3%>
             </div>
           </td>
 
           <td class="px-6 py-4 whitespace-nowrap">
-            <div class="field text-sm text-gray-900 border">
-              <%= f.number_field :rate, step: 0.1 %>
+            <div class="field text-sm text-gray-900">
+              <%= f.number_field :rate, step: 0.1, class:"w-full border border-gray-700 rounded p-2" %>
             </div>
           </td>
 
           <td class="px-6 py-4 whitespace-nowrap">
-            <div class="field text-sm text-gray-900 border">
-              <%= f.number_field :quantity %>
+            <div class="field text-sm text-gray-900">
+              <%= f.number_field :quantity, class:"w-full border border-gray-700 rounded p-2" %>
             </div>
           </td>
 
           <td class="px-6 py-4 whitespace-nowrap">
-            <div class="field text-sm text-gray-900 border">
-              <%= f.number_field :amount, disabled: true %>
+            <div class="field text-sm text-gray-900">
+              <%= f.number_field :amount, disabled: true, class:"w-full border border-gray-700 rounded p-2" %>
             </div>
           </td>
 
           <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-gray-900 border">
+            <div class="text-sm text-gray-900">
               <%= link_to_remove_association "X", f %>
             </div>
           </td>

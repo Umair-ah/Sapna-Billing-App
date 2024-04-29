@@ -1,0 +1,64 @@
+<%= form_with(model: invoice) do |form| %>
+  <% if invoice.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+        <% invoice.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :number, style: "display: block" %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :to, style: "display: block" %>
+    <%= form.text_area :to %>
+  </div>
+
+  <div>
+    <%= form.label :total_amount, style: "display: block" %>
+    <%= form.text_field :total_amount %>
+  </div>
+
+    <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+      <thead class="bg-gray-50">
+        <tr>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Description
+          </th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Rate
+          </th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Quantity
+          </th>
+          <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Amount
+          </th>
+        </tr>
+      </thead>
+    </table>
+   <div id="items">
+        <%= form.fields_for :items do |item| %>
+          <%= render "item_fields", f: item %>
+        <% end %>
+
+
+      <%= link_to_add_association 'add item', form, :items %>
+    </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

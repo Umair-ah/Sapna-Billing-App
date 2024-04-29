@@ -1,17 +1,23 @@
 <p style="color: green"><%= notice %></p>
-<div class="bg-white p-7">
+<div class="bg-white">
+  <div class="grid place-items-end">
+    <%= image_tag "sapna_header.jpg" %>
+  </div>
+  
+  <div class="p-7">
+
   <div class="flex items-center justify-between">
         <div>
           <div>
-            <span class="font-bold text-lg">INVOICE/BILL NO:</span> <span class="font-bold text-medium"><%= @invoice.number %></span>
+            <span class="font-bold text-sm">INVOICE/BILL NO:</span> <span class="font-bold text-medium"><%= @invoice.number %></span>
           </div>
 
           <div>
-            <span class="font-bold text-lg">INVOICE DATE :</span> <span class="font-bold text-medium"><%= @invoice.date %></span>
+            <span class="font-bold text-sm">INVOICE DATE :</span> <span class="font-bold text-medium"><%= @invoice.date %></span>
           </div>
 
           <div>
-            <span class="font-bold text-lg">To.</span><br/><span class="font-bold text-medium"><%= @invoice.to %></span>
+            <span class="font-bold text-sm">To.</span><br/><span class="font-bold text-medium"><%= @invoice.to %></span>
           </div>
         </div>
 
@@ -31,7 +37,7 @@
         </div>
         
         <div>
-          <p class="text-lg font-bold">
+          <p class="text-sm font-bold">
             From.
             M/S SAPNA ENTERPRISES
             R/O SHOP NO.1-9491/1/1,
@@ -39,7 +45,7 @@
             Kalaburagi.
           </p>
 
-          <p class="text-lg font-bold">
+          <p class="text-sm font-bold">
             GST : 29DEZPK1132R1ZJ <br/>
             PAN : DEZPK1132R 
           </p>
@@ -111,6 +117,7 @@
     <%= link_to "Back to invoices", invoices_path %>
 
     <%= button_to "Destroy this invoice", @invoice, method: :delete %>
+  </div>
   </div>
 
 </div>

@@ -81,3 +81,4 @@ gem 'wicked_pdf'
 gem "wkhtmltopdf-binary"
 gem 'money'
 gem 'numbers_and_words'
+gem "pagy", "~> 7.0"

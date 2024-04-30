@@ -3,7 +3,12 @@ class InvoicesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @invoices = Invoice.all
+    if params[:search].present?
+      @invoices_pagy, @invoices = pagy(Invoice.where(number: params[:search]))
+      flash[:notice]="Record Found!"
+    else
+      @invoices_pagy, @invoices = pagy(Invoice.order(updated_at: :desc))
+    end
   end
 
   def show

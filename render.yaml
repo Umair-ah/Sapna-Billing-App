@@ -10,14 +10,11 @@ services:
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
-    startCommand: "bundle exec rails server"
+    startCommand: "ssh -i 'sapnaxerox2main.pem' -L 5432:localhost:5432 admin@ec2-15-206-149-166.ap-south-1.compute.amazonaws.com -N && bundle exec rails server"
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: mysite
-          property: connectionString
+        value: "postgresql://username:password@localhost:5432/database_name"
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
-        value: 2 # sensible default
+        value: 2

@@ -76,3 +76,8 @@ end
 
 gem "devise"
 gem "cocoon"
+
+gem 'wicked_pdf'
+gem "wkhtmltopdf-binary"
+gem 'money'
+gem 'numbers_and_words'

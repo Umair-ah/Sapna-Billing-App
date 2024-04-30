@@ -1,16 +1,14 @@
-<p style="color: green"><%= notice %></p>
-<%= link_to 'This Invoice in PDF', invoice_path(@invoice, format: :pdf), target: :_blank %>
 <div class="bg-white">
-  <div class="flex justify-between items-center border border-gray-300 p-8 relative">
+  <div class="cus-b">
   <!-- Company Name Section -->
   <div>
-    <div class="flex items-center justify-start gap-3">
+    <div class="seperate-name flex-two flex items-center justify-start gap-3">
       <h2 class="font-extrabold text-yellow-500 text-5xl">Sapna</h2>
       <h2 class="font-extrabold text-yellow-500 text-3xl mt-3">Enterprises</h2>
     </div>
 
     <!-- Contact Information Section -->
-    <div class="flex items-center justify-between mt-2 gap-4">
+    <div class="seperate-links flex-one items-center justify-between mt-2 gap-4">
       <div class="flex items-center justify-center text-slate-600">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
           <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
@@ -36,61 +34,45 @@
     </div>
   </div>
   
-  <!-- Shapes -->
-  <!-- Left Triangle -->
-  <div class="absolute left-0 top-4 transform -translate-x-8 -translate-y-8">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-300 w-16 h-16">
-      <path fill-rule="evenodd" d="M10 0L0 20h20L10 0zm-1.42 16.6L2.8 10 8.6 3.4 15.16 10l-5.78 6.6zM13.4 10l-5.6 6.4L4 10l3.8-4.4 5.6 6.4z" clip-rule="evenodd" />
-    </svg>
-  </div>
-  
-  <!-- Right Triangle -->
-  <div class="absolute right-0 bottom-0 transform translate-x-8 -translate-y-8">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="text-gray-300 w-16 h-16">
-      <path fill-rule="evenodd" d="M10 0L0 20h20L10 0zm-1.42 16.6L2.8 10 8.6 3.4 15.16 10l-5.78 6.6zM13.4 10l-5.6 6.4L4 10l3.8-4.4 5.6 6.4z" clip-rule="evenodd" />
-    </svg>
-  </div>
+ 
 </div>
+<hr/>
+  
+  <div class="p-7 mar">
+
+  <div class="seperate-upper">
+    <div>
+      <div>
+        <span class="font-bold text-sm">INVOICE/BILL NO:</span> <span class="font-bold text-medium"><%= @invoice.number %></span>
+      </div>
+
+      <div>
+        <span class="font-bold text-sm">INVOICE DATE :</span> <span class="font-bold text-medium"><%= @invoice.date %></span>
+      </div>
+
+        <span class="font-bold text-sm">To.</span><br/>
+      <div class="flex items-center justify-start w-[500px]">
+        <span class="font-bold text-medium"><%= @invoice.to %></span>
+      </div>
+    </div>
 
   
-  <div class="p-7">
+    <div>
+      <p class="text-sm font-bold">
+        From.
+        M/S SAPNA ENTERPRISES
+        R/O SHOP NO.1-9491/1/1,
+        SHABAZ COLONY T C,
+        Kalaburagi.
+      </p>
 
-  <div class="flex items-center justify-between">
-        <div>
-          <div>
-            <span class="font-bold text-sm">INVOICE/BILL NO:</span> <span class="font-bold text-medium"><%= @invoice.number %></span>
-          </div>
+      <p class="text-sm font-bold">
+        GST : 29DEZPK1132R1ZJ <br/>
+        PAN : DEZPK1132R 
+      </p>
+    </div>
 
-          <div>
-            <span class="font-bold text-sm">INVOICE DATE :</span> <span class="font-bold text-medium"><%= @invoice.date %></span>
-          </div>
-
-            <span class="font-bold text-sm">To.</span><br/>
-          <div class="flex items-center justify-start w-[500px]">
-            <span class="font-bold text-medium"><%= @invoice.to %></span>
-          </div>
-        </div>
-
-        <div class="flex flex-col">
-      
-        </div>
-        
-        <div>
-          <p class="text-sm font-bold">
-            From.
-            M/S SAPNA ENTERPRISES
-            R/O SHOP NO.1-9491/1/1,
-            SHABAZ COLONY T C,
-            Kalaburagi.
-          </p>
-
-          <p class="text-sm font-bold">
-            GST : 29DEZPK1132R1ZJ <br/>
-            PAN : DEZPK1132R 
-          </p>
-        </div>
-
-      </div>
+  </div>
 
   
 <div class="relative overflow-x-auto">
@@ -98,16 +80,16 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Description
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Rate
+                    Amount
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Quantity
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Amount
+                    Rate
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Description
                 </th>
          
             </tr>
@@ -115,28 +97,29 @@
         <tbody>
           <% @invoice.items.each do |item| %>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 border">
-                  <%= item.description %>
-                </th>
                 <td class="px-6 py-4 border">
-                    &#8377;<%= Money.new(item.rate * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %>
+                  &#8377;<%= Money.new(item.amount * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %>
                 </td>
                 <td class="px-6 py-4 border">
                     <%= item.quantity %>
                 </td>
                 <td class="px-6 py-4 border">
-                  &#8377;<%= Money.new(item.amount * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %>
+                  &#8377;<%= Money.new(item.rate * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %>
+                </td>
+                <td scope="row" class="px-6 py-4 border">
+                  <%= item.description %>
                 </td>
             </tr>
           <% end %>
           <tr>
+            <td colspan='1' class="p-1 whitespace-nowrap border pl-6">&#8377;<%= Money.new(@invoice.total_amount * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %>
+            </td>
             <td colspan='3' class="p-1 whitespace-nowrap border">
-              <div class="flex items-center justify-between pl-4 pr-2">
-                <b>In Words: <%= @invoice.total_amount.to_f.to_i.to_words({:locale => :en}).titleize %> Rupees Only</b>
-                <b>Total.</b>
+              <div class="seperate-last">
+                <div><b>Total  |   </b></div>
+                <div><b>In Words: <%= @invoice.total_amount.to_f.to_i.to_words({:locale => :en}).titleize %> Rupees Only</b></div>
               </div>
             </td>
-            <td colspan='1' class="p-1 whitespace-nowrap border pl-6">&#8377;<%= Money.new(@invoice.total_amount * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %></td>
           </tr>
         </tbody>
     </table>
@@ -149,11 +132,6 @@
 
 </div>
 
-  <div>
-    <%= link_to "Edit this invoice", edit_invoice_path(@invoice) %> |
-    <%= link_to "Back to invoices", invoices_path %>
 
-    <%= button_to "Destroy this invoice", @invoice, method: :delete %>
-  </div>
 
 

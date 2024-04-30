@@ -7,6 +7,16 @@ class InvoicesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: [@invoice.number, @invoice.date].join('-'),
+               template: "invoices/invoice",
+               formats: [:html],
+               disposition: :inline,
+               layout: 'pdf'
+      end
+    end
   end
 
   def new

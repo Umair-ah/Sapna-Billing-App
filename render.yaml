@@ -1,20 +1,23 @@
 databases:
-  - name: sapna-billing-app
-    databaseName: sapna-billing-app
-    user: Umair
+  - name: sapna_billing
+    databaseName: sapna_billing
+    user: postgres
     plan: free
 
 services:
   - type: web
-    name: sapna-billing-app
+    name: sapna_billing
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
-    startCommand: "ssh -i 'sapnaxerox2main.pem' -L 5432:localhost:5432 admin@ec2-15-206-149-166.ap-south-1.compute.amazonaws.com -N && bundle exec rails server"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
     envVars:
-      - key: DATABASE_URL
-        value: "postgresql://username:password@localhost:5432/database_name"
+      - key: postgresql://postgres:Sadatbanu@123@ec2-15-207-254-173.ap-south-1.compute.amazonaws.com:5432/sapna_billing
+        fromDatabase:
+          name: sapna_billing
+          property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY
-        value: 2
+        value: 2 # sensible default

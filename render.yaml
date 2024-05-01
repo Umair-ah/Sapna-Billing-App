@@ -13,7 +13,7 @@ services:
     # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
     startCommand: "bundle exec rails server"
     envVars:
-      - key: postgresql://postgres:Sadatbanu%40123@ec2-15-207-254-173.ap-south-1.compute.amazonaws.com:5432/sapna_billing
+      - key: postgresql://postgres:Sadatbanu123@ec2-15-207-254-173.ap-south-1.compute.amazonaws.com:5432/sapna_billing
         fromDatabase:
           name: sapna_billing
           property: connectionString

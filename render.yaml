@@ -14,7 +14,7 @@ services:
     startCommand: "bundle exec rails server"
     envVars:
       - key: DATABASE_URL
-        value: "postgresql://postgres:Sadatbanu%40123@ec2-15-207-254-173.ap-south-1.compute.amazonaws.com:5432/sapna_billing"
+        value: "postgresql://postgres:Sadatbanu123@ec2-15-207-254-173.ap-south-1.compute.amazonaws.com:5432/sapna_billing"
       - key: RAILS_MASTER_KEY
         sync: false
       - key: WEB_CONCURRENCY

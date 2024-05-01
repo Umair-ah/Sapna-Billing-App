@@ -91,11 +91,14 @@
                 <th scope="col" class="px-6 py-3">
                     Description
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Sr.No
+                </th>
          
             </tr>
         </thead>
         <tbody>
-          <% @invoice.items.each do |item| %>
+          <% @invoice.items.each_with_index do |item, index| %>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <td class="px-6 py-4 border">
                   &#8377;<%= Money.new(item.amount * 100, "INR").format(:symbol => false, :south_asian_number_formatting => true) %>
@@ -108,6 +111,9 @@
                 </td>
                 <td scope="row" class="px-6 py-4 border">
                   <%= item.description %>
+                </td>
+                <td scope="row" class="px-6 py-4 border">
+                  <%= index+1 %>
                 </td>
             </tr>
           <% end %>

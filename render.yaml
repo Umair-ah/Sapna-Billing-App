@@ -2,6 +2,7 @@ databases:
   - name: sapna_billing
     databaseName: sapna_billing
     user: postgres
+    password: Sadatbanu@123
     plan: free
 
 services:
